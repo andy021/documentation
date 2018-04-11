@@ -111,4 +111,44 @@
     computational complexity of the multiplication algorithm used. This is where 
     Strassen's algorithm, with a complexity of \(O(n^{log_27})\), comes into play.
 
+    \bigskip
+
+    Strassen describes an algorithm to multiply two matrices by splitting
+    each into four matrix blocks of equal dimensions and performing seven multiplications
+    between those blocks as opposed to eight.
+    \[A = \begin{bmatrix*}
+        A_{11} & A_{12} \\
+        A_{21} & A_{22}
+    \end{bmatrix*},\ B =
+    \begin{bmatrix*}
+        B_{11} & B_{12} \\
+        B_{21} & B_{22}
+    \end{bmatrix*},\ AB = C =
+    \begin{bmatrix*}
+        C_{11} & C_{12} \\
+        C_{21} & C_{22}
+    \end{bmatrix*}\]
+
+    We define seven new matrices
+    \begin{align*}
+        M_1 &\coloneqq (A_{11} + A_{22})(B_{11} + B_{22}) \\
+        M_2 &\coloneqq (A_{21} + A_{22})B_{11} \\
+        M_3 &\coloneqq A_{11}(B_{12} - B_{22}) \\
+        M_4 &\coloneqq A_{22}(B_{21} - B_{11}) \\
+        M_5 &\coloneqq (A_{11} + A_{12})B_{22} \\
+        M_6 &\coloneqq (A_{21} - A_{11})(B_{11} + B_{12}) \\
+        M_7 &\coloneqq (A_{12} - A_{22})(B_{21} + B_{22})
+    \end{align*}
+
+    Note that for each matrix, we multiply only once. We can 
+    now compose these matrices into \(C\), or \(AB\).
+    \begin{align*}
+        C_{11} &= M_1 + M_4 - M_5 + M_7 \\
+        C_{12} &= M_3 + M_5 \\
+        C_{21} &= M_2 + M_4 \\
+        C_{22} &= M_1 - M_2 + M_3 + M_6
+    \end{align*}
+    And thus, we've achieved matrix multiplication in subcubic time,
+    and by extension, we can achieve matrix inversion in subcubic time.
+
 \end{document}
