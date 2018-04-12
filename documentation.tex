@@ -24,7 +24,7 @@
 
 \title{Subcubic Parallelized Matrix Inversion \\
 	\large Through Strassen's Algorithm}
-\author{Andres Valdes}
+\author{Andres Valdes, Alejandro Perez, Dewey Morris}
 \date{April, 2018}
 
 \begin{document}
@@ -59,7 +59,7 @@
     This is a what is referred to as a \(2\times{4}\) matrix, as it 
     has two rows and four columns. In general, we speak about matrices as 
     \(m\times{n}\), where \(m\) is the number of rows and \(n\) is the number 
-    of rows. The types of matrices we will deal with are called "square" 
+    of columns. The types of matrices we will deal with are called "square" 
     matrices, this is the case that we have an \(m\times{n}\) matrix such that 
     \(m = n\), we refer to these also as \(n\times{n}\) matrices. Only square, 
     non-singular\footnote{A matrix whose determinant is nonzero.} 
@@ -96,7 +96,7 @@
 
     Thankfully, we do have a way of reducing the problem for the calculation of 
     a matrix inverse via an analytic inversion formula known as blockwise inversion. 
-    In blockwise inversion, we split our matrix \(M\) into blocks, such that
+    In blockwise inversion, we split our matrix \(M\) into matrix blocks, such that
     \[M^{-1} = \begin{bmatrix*}
         A & B \\
         C & D
